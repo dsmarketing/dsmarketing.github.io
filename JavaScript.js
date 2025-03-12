@@ -1,6 +1,3 @@
-<!--<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.6.1/dist/js/tabulator.min.js"></script>-->
-<script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.0/dist/js/tabulator.min.js"></script>
-<script>
 function doGet(request) {
   return HtmlService.createTemplateFromFile('Index').evaluate()
 .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
@@ -184,5 +181,3 @@ function closePopup() {
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
   }
-
-</script>
