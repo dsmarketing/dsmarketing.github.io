@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", createTable);
 function createTable() {
   document.getElementById("loading-bar").style.display = "flex";
 
-  fetch('https://script.google.com/macros/s/AKfycbxjMw3zWKUzjrD0kJuXS2xHfpw2uw-TFAWeJdWpOJbes7VRltNg-RlP_bKMaY0Vtbc/exec') // Google Sheets JSON URL
+  fetch('https://script.google.com/macros/s/AKfycbw1c3-KZt-rICmI2iX6cewy6hMxlKHOelz884MeBbnhs_aJC4hsrWicOhkfgriFppre/exec') // Google Sheets JSON URL
     .then(response => response.json())
     .then(tableData => {
       let table = new Tabulator("#example-table", {
