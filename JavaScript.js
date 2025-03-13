@@ -39,6 +39,8 @@ function createTable() {
         paginationSize: 10,
         paginationSizeSelector: [10, 20, 50],
         paginationCounter: "rows",
+		ajaxURL:"https://script.google.com/macros/s/AKfycbzrnj05YY4q2grrvR5jyz_4tL6X6pq0Y32MUEzP9eOzxONzDWYkZZ9NzbzUIo9wmQ-v/exec", //ajax URL
+		progressiveLoad:"load", //sequentially load all data into the table
         movableColumns: true,
         responsiveLayout: "collapse",
         layout: "fitColumns",
