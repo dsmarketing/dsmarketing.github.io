@@ -147,3 +147,12 @@ function colorIndex(cell) {
   cell.getElement().style.backgroundColor = color;
   return value;
 }
+
+<!-- JavaScript to toggle modals -->
+  function toggleModal(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
