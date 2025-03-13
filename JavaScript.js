@@ -2,6 +2,33 @@ document.addEventListener("DOMContentLoaded", createTable);
 
 function createTable() {
   document.getElementById("loading-bar").style.display = "flex";
+  
+  const totalDataPoints = 42480;
+  // Set the chunk size (in increments)
+  const chunkSize = 500;
+  let currentProgress = 0;
+
+// Simulate loading by updating the progress bar in chunks
+    function updateProgress() {
+      if (currentProgress < totalDataPoints) {
+        currentProgress += chunkSize;  // Increase progress by chunk size (500)
+        if (currentProgress > totalDataPoints) {
+          currentProgress = totalDataPoints;  // Cap the progress to totalDataPoints
+        }
+        const progressPercentage = (currentProgress / totalDataPoints) * 100;
+        document.getElementById("progress").style.width = `${progressPercentage}%`;
+        document.getElementById("progress-text").textContent = `${currentProgress} / ${totalDataPoints}`;
+      }
+    }
+
+    // Simulate progress bar update every 100ms (this is just visual)
+    const progressInterval = setInterval(updateProgress, 100);
+
+    // Stop the progress bar after it reaches 100% (or simulating end of loading)
+    setTimeout(() => {
+      clearInterval(progressInterval); // Stop the progress bar once it's done
+      document.getElementById("loading-bar").style.display = "none";  // Hide the progress bar
+    }, 11000);  // Simulate loading for 11 seconds (adjustable)
 
   fetch('https://script.google.com/macros/s/AKfycbzrnj05YY4q2grrvR5jyz_4tL6X6pq0Y32MUEzP9eOzxONzDWYkZZ9NzbzUIo9wmQ-v/exec') // Google Sheets JSON URL
     .then(response => response.json())
@@ -28,6 +55,22 @@ function createTable() {
           { title: "Link", field: "URL", formatter: "link", width: 82, formatterParams: { label: "Link", target: "_blank" } }
         ],
       });
+	  
+	  table.on("rowClick", function (e, row) {
+      showPopup(row.getData());
+    });
+
+    // Add event listener for global search
+      document.getElementById("global-search").addEventListener("keyup", function() {
+        let searchTerm = this.value;
+        table.setFilter((data) => {
+          // Search all columns
+          return Object.values(data).some(value => 
+            String(value).toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        });
+      });
+	  
 
       document.getElementById("loading-bar").style.display = "none";
     })
@@ -36,6 +79,56 @@ function createTable() {
       document.getElementById("loading-bar").style.display = "none";
     });
 }
+
+function showPopup(data) {
+  let popup = document.getElementById("popup");
+
+  // Create popup if it doesn't exist
+  if (!popup) {
+    popup = document.createElement("div");
+    popup.id = "popup";
+    document.body.appendChild(popup);
+
+    // Add basic styling
+    popup.style.position = "fixed";
+    popup.style.top = "50%";
+    popup.style.left = "50%";
+    popup.style.transform = "translate(-50%, -50%)";
+    popup.style.backgroundColor = "#fff";
+    popup.style.padding = "20px";
+    popup.style.border = "1px solid #ccc";
+    popup.style.zIndex = "1000";
+    popup.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.5)";
+  }
+
+  // Update popup content
+  popup.innerHTML = `
+    <div class="popup-content">
+      <h2>Testresultat</h2>
+      <p><strong>Kemikalie:</strong> ${data.Kemikalie}</p>
+      <p><strong>CAS nummer:</strong> ${data["CAS nummer"]}</p>
+      <p><strong>Vare nummer:</strong> ${data["Vare nummer"]}</p>
+      <p><strong>Produkt type:</strong> ${data["Produkt type"]}</p>
+      <p><strong>Produkt:</strong> 
+        <a href="${data["URL"]}">
+        ${data.Produkt}
+        </a>
+      </p>
+      <p><strong>Gennembrudstid:</strong> ${data.Gennembrudstid}</p>
+      <p><strong>Index:</strong> ${data.Index}</p>
+      <button onclick="closePopup()">Luk</button>
+    </div>
+  `;
+
+  // Ensure the popup is visible
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  const popup = document.getElementById("popup");
+  if (popup) popup.style.display = "none";
+}
+
 
 function colorIndex(cell) {
   let value = cell.getValue();
