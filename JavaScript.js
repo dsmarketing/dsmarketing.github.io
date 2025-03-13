@@ -80,6 +80,15 @@ function createTable() {
     });
 }
 
+<!-- JavaScript to toggle modals -->
+function toggleModal(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
 function showPopup(data) {
   let popup = document.getElementById("popup");
 
@@ -148,11 +157,4 @@ function colorIndex(cell) {
   return value;
 }
 
-<!-- JavaScript to toggle modals -->
-  function toggleModal(id) {
-    document.getElementById(id).style.display = 'block';
-  }
 
-  function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
-  }
