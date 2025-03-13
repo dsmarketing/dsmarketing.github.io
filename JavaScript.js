@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", createTable);
 function createTable() {
   document.getElementById("loading-bar").style.display = "flex";
   
-  const totalDataPoints = 42480;
+  const totalDataPoints = 24310;
   // Set the chunk size (in increments)
-  const chunkSize = 500;
+  const chunkSize = 379;
   let currentProgress = 0;
 
 // Simulate loading by updating the progress bar in chunks
