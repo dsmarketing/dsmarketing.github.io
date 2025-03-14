@@ -50,26 +50,7 @@ function createTable() {
         { title: "Kemikalie", field: "Kemikalie", headerFilter: true, width: 300, vertAlign: "center" },
         { title: "CAS nr.", field: "CAS nummer", headerFilter: true, vertAlign: "center" },
         { title: "Vare nr.", field: "Vare nummer", headerFilter: true, vertAlign: "center" },
-        { 
-            title: "Produkt type", 
-            field: "Produkt type", 
-            vertAlign: "center",
-            headerFilter: "select",
-            headerFilterPlaceholder: "-- Select --",
-            headerFilterParams: {
-                values: {
-                    "": "All",
-                    "Kemikaliehandsker": "Kemikaliehandsker",
-                    "Kemikaliedragte": "Kemikaliedragte",
-                    "Filtre": "Filtre",
-                    "Absorbenter": "Absorbenter",
-                    "Miljøopbevaring": "Miljøopbevaring",
-                    "Drain protection covers": "Drain protection covers",
-                    "Ansigtsskærme / visirer": "Ansigtsskærme / visirer",
-                    "Tape": "Tape"
-                }
-            }
-        },
+        { title: "Produkt type", field: "Produkt type", headerFilter: true, vertAlign:"center"  },
         { title: "Produkt", field: "Produkt", headerFilter: true, vertAlign: "center" },
         { title: "Gennembrudstid", field: "Gennembrudstid", headerFilter: true, vertAlign: "center" },
         { title: "Index", field: "Index", headerFilter: true, width: 100, formatter: colorIndex, vertAlign: "center" },
