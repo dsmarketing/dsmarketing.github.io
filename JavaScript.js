@@ -46,14 +46,14 @@ function createTable() {
         layout: "fitColumns",
         columnDefaults: { tooltip: true },
         columns: [
-          { title: "", field: "Billede", formatter: "image", formatterParams: { height: "70px", width: "70px" }, width: 85 },
-          { title: "Kemikalie", field: "Kemikalie", headerFilter: true, width: 300 },
-          { title: "CAS nr.", field: "CAS nummer", headerFilter: true },
-          { title: "Vare nr.", field: "Vare nummer", headerFilter: true },
-          { title: "Produkt type", field: "Produkt type", headerFilter: true },
-          { title: "Produkt", field: "Produkt", headerFilter: true },
-          { title: "Gennembrudstid", field: "Gennembrudstid", headerFilter: true },
-          { title: "Index", field: "Index", headerFilter: true, width: 100, formatter: colorIndex },
+          { title: "", field: "Billede", formatter: "image", formatterParams: { height: "70px", width: "70px" }, width: 85, vertAlign:"center"  },
+          { title: "Kemikalie", field: "Kemikalie", headerFilter: true, width: 300, vertAlign:"center"  },
+          { title: "CAS nr.", field: "CAS nummer", headerFilter: true, vertAlign:"center"  },
+          { title: "Vare nr.", field: "Vare nummer", headerFilter: true, vertAlign:"center"  },
+          { title: "Produkt type", field: "Produkt type", headerFilter: true, vertAlign:"center"  },
+          { title: "Produkt", field: "Produkt", headerFilter: true, vertAlign:"center"  },
+          { title: "Gennembrudstid", field: "Gennembrudstid", headerFilter: true, vertAlign:"center"  },
+          { title: "Index", field: "Index", headerFilter: true, width: 100, formatter: colorIndex, vertAlign:"center" },
           { title: "Link", field: "URL", formatter: "link", width: 82, formatterParams: { label: "Link", target: "_blank" } }
         ],
       });
