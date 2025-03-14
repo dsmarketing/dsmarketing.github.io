@@ -52,18 +52,20 @@ function createTable() {
           { title: "Vare nr.", field: "Vare nummer", headerFilter: true, vertAlign:"center"  },
           { title: "Produkt type", field: "Produkt type", vertAlign:"center", headerFilter: "select", 
             headerFilterParams: {
-                values: {
-                    "": "All",
-                    "Kemikaliehandsker": "Kemikaliehandsker",
-                    "Kemikaliedragte": "Kemikaliedragte",
-                    "Filtre": "Filtre",
-                    "Absorbenter": "Absorbenter",
-                    "Miljøopbevaring": "Miljøopbevaring",
-                    "Drain protection covers": "Drain protection covers",
-                    "Ansigtsskærme / visirer": "Ansigtsskærme / visirer",
-                    "Tape": "Tape"
-                } 
-            }   },
+                values: [
+                    { label: "All", value: "" },
+                    { label: "Kemikaliehandsker", value: "Kemikaliehandsker" },
+                    { label: "Kemikaliedragte", value: "Kemikaliedragte" },
+                    { label: "Filtre", value: "Filtre" },
+                    { label: "Absorbenter", value: "Absorbenter" },
+                    { label: "Miljøopbevaring", value: "Miljøopbevaring" },
+                    { label: "Drain protection covers", value: "Drain protection covers" },
+                    { label: "Ansigtsskærme / visirer", value: "Ansigtsskærme / visirer" },
+                    { label: "Tape", value: "Tape" }
+                ]
+            },
+            headerFilterFunc: "=" // ensures exact match filtering
+			},
           { title: "Produkt", field: "Produkt", headerFilter: true, vertAlign:"center"  },
           { title: "Gennembrudstid", field: "Gennembrudstid", headerFilter: true, vertAlign:"center"  },
           { title: "Index", field: "Index", headerFilter: true, width: 100, formatter: colorIndex, vertAlign:"center" },
