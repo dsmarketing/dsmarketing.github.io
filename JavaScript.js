@@ -46,25 +46,35 @@ function createTable() {
         layout: "fitColumns",
         columnDefaults: { tooltip: true },
         columns: [
-          { title: "", field: "Billede", formatter: "image", formatterParams: { height: "70px", width: "70px" }, width: 85, vertAlign:"center"  },
-          { title: "Kemikalie", field: "Kemikalie", headerFilter: true, width: 300, vertAlign:"center"  },
-          { title: "CAS nr.", field: "CAS nummer", headerFilter: true, vertAlign:"center"  },
-          { title: "Vare nr.", field: "Vare nummer", headerFilter: true, vertAlign:"center"  },
-          { title: "Produkt type", field: "Produkt type", vertAlign:"center", 
-            headerFilterPlaceholder: "-- Select --", 
-			headerFilter:"select", 
-			headerFilterParams: {
-				values: [1.0, 1.1, 1.2],
-				listItemFormatter:function(value, title){ 
-				return "<b>" + title + "</b>";
-					},
-				}
-			},
-          { title: "Produkt", field: "Produkt", headerFilter: true, vertAlign:"center"  },
-          { title: "Gennembrudstid", field: "Gennembrudstid", headerFilter: true, vertAlign:"center"  },
-          { title: "Index", field: "Index", headerFilter: true, width: 100, formatter: colorIndex, vertAlign:"center" },
-          { title: "Link", field: "URL", formatter: "link", width: 82, formatterParams: { label: "Link", target: "_blank" } }
-        ],
+        { title: "", field: "Billede", formatter: "image", formatterParams: { height: "70px", width: "70px" }, width: 85, vertAlign: "center" },
+        { title: "Kemikalie", field: "Kemikalie", headerFilter: true, width: 300, vertAlign: "center" },
+        { title: "CAS nr.", field: "CAS nummer", headerFilter: true, vertAlign: "center" },
+        { title: "Vare nr.", field: "Vare nummer", headerFilter: true, vertAlign: "center" },
+        { 
+            title: "Produkt type", 
+            field: "Produkt type", 
+            vertAlign: "center",
+            headerFilter: "select",
+            headerFilterPlaceholder: "-- Select --",
+            headerFilterParams: {
+                values: {
+                    "": "All",
+                    "Kemikaliehandsker": "Kemikaliehandsker",
+                    "Kemikaliedragte": "Kemikaliedragte",
+                    "Filtre": "Filtre",
+                    "Absorbenter": "Absorbenter",
+                    "Miljøopbevaring": "Miljøopbevaring",
+                    "Drain protection covers": "Drain protection covers",
+                    "Ansigtsskærme / visirer": "Ansigtsskærme / visirer",
+                    "Tape": "Tape"
+                }
+            }
+        },
+        { title: "Produkt", field: "Produkt", headerFilter: true, vertAlign: "center" },
+        { title: "Gennembrudstid", field: "Gennembrudstid", headerFilter: true, vertAlign: "center" },
+        { title: "Index", field: "Index", headerFilter: true, width: 100, formatter: colorIndex, vertAlign: "center" },
+        { title: "Link", field: "URL", formatter: "link", width: 82, formatterParams: { label: "Link", target: "_blank" } }
+    ],
       });
 	  
 	  table.on("rowClick", function (e, row) {
